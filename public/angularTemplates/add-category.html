@@ -1,0 +1,59 @@
+    <!-- USER MESSAGE DISPLAY BLOCK -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message" ng-show="userMessage !=''">
+                    <button class="btn hide-message-btn" ng-click="hideMessage()"><i class="fa fa-times"></i></button>
+                    <p>{{userMessage}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ERROR MESSAGE DISPLAY BLOCK -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message warning" ng-show="serverError !=''">
+                    <p>{{serverError}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ADD CATEGORY FORM -->
+    <div id="form-container">
+        <div class="container">
+            <div class="row form-container">
+                <form name="addcategoryform" ng-submit="addCategory(addcategoryform.$valid)" novalidate >
+                    <div class="col-md-12">
+                        <h1 class="page-title">Add a Category (Admin)</h1>
+                        <div>
+                            <div class="form-group">
+                                <label for="newCategoryTitle">New Category Name</label>
+                                <input type="text" class="form-control" ng-model="newCategoryTitle" name="newCategoryTitle" required ng-minlength="2" ng-maxlength="100" />
+                                <div class="error-container" ng-messages="addcategoryform.newCategoryTitle.$error" ng-if="addcategoryform.newCategoryTitle.$touched">
+                                    <p ng-message="minlength">Your Category Name Title is too short.</p>
+                                    <p ng-message="maxlength">Your Category Name is too long.</p>
+                                    <p ng-message="required">A Category Name is required.</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newCategorySlug">Category Slug</label>
+                                <div class="slug-container form-control" disabled>
+                                    <slug from="newCategoryTitle" to="newCategorySlug">{{newCategorySlug}}</slug>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newCategoryDescription">Category Short Description</label>
+                                <input type="text" class="form-control" ng-model="newCategoryDescription" name="newCategoryDescription" ng-maxlength="40" />
+                                <div class="error-container" ng-messages="addcategoryform.newCategoryDescription.$error" ng-if="addcategoryform.newCategoryDescription.$touched">
+                                    <p ng-message="maxlength">Your Description is too long.</p>
+                                </div>
+                            </div>
+                      
+                        <button class="btn btn-primary" type="submit" ng-disabled="addcategoryform.$invalid"><i class="fa fa-plus-circle"></i> Add New Category</button>
+                        <a href="/categories/" class="btn btn-default"><i class="fa fa-chevron-left"></i> Go Back</a>
+                    </div>
+                </form>   
+            </div>
+        </div>
+    </div>

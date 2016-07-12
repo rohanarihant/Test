@@ -1,0 +1,149 @@
+    <!-- USER MESSAGE DISPLAY BLOCK -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message" ng-show="userMessage !=''">
+                    <button class="btn hide-message-btn" ng-click="hideMessage()"><i class="fa fa-times"></i></button>
+                    <p>{{userMessage}}</p>
+                 </div>
+            </div>
+        </div>
+    </div>       
+    <!--  DISPLAY ALL CATEGORIES -->  
+    <div id="posts-display">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 clearfix">
+                    <div class="">
+                        <a class="btn btn-success right" ng-href="/add-category" ng-show="isAdmin"><i class="fa fa-plus-square"></i> Add New Category</a>
+                        <a class="right btn btn-primary" ng-href="/add-post" ng-show="isLoggedIn"><i class="fa fa-plus-square"></i> Add New Post</a>
+                        <a class="right" ng-href="/login" ng-show="!isLoggedIn">Login To Post</a>
+                    </div>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="page-title">Categories</h1>
+				</div>
+			</div>
+		</div>
+        <div ng-if="categories.length == 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="user-message warning" ng-show="message !=''">
+                            <p>No Categories To Display</p>
+                         </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+        <div class="container"  ng-if="categories.length != 0">
+            <div class="row">
+                <div class="table-wrap">
+                    <div class="col-md-8 col-sm-7 col-xs-8 table-heading">
+                        <p ng-click="orderByTitle()">Categories
+                            <span ng-show="rowFilter == 'categoryname'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == '-categoryname'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </p>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-4 table-heading">
+                        <p ng-click="orderByTopics()">Topics
+                            <span ng-show="rowFilter == '-posts.length'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == 'posts.length'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </p>
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs table-heading">
+                        <p ng-click="orderByViews()">Views
+                            <span ng-show="rowFilter == 'views'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == '-views'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+   <div class="main-questions-list" ng-repeat="category in categories | orderBy: rowFilter">
+            <ul id="main_questions_list">
+    <li data-id="42" class="question-item post-42 question type-question status-publish hentry question_category-design qa_tag-designer qa_tag-illustrator qa_tag-photoshop qa_tag-school qa_tag-work" itemtype="" itemscope="" itemprop="itemListElement">
+    <div itemtype="" itemscope="" itemprop="item">
+        <div class="col-md-7 col-xs-7 q-left-content">
+            <div class="q-ltop-content">
+                <h2 itemprop="name">
+                    <p><a class="question-title" href="/categories/{{category.categoryslug}}">{{category.categoryname | cut:true:60: ' ...'}}</a> <a class="delete-button"  ng-href="/delete-category/{{category._id}}" ng-show="isAdmin"><i class="fa fa-times-circle-o"></i></a></p>
+
+
+                    <!-- <a class="question-title" href="/categories/{{category.categoryslug}}" itemprop="url">{{category.categoryname | cut:true:60: ' ...'}}</a> -->
+                </h2>
+            </div>
+            <div class="q-lbtm-content">
+                <div class="question-excerpt" itemprop="text">
+                    <p ng-if="category.categorydescription">{{category.categorydescription | cut:true:60: ' ...'}}</p>
+                </div>
+                <div class="question-cat">
+                    <ul class="question-tags">
+                        <li> <a href=" " class="q-tag"> Angular.js</a> </li>
+                        <li> <a href="" class="q-tag">Node.js</a> </li>
+                        <li> <a href="" class="q-tag"> Express  </a>   </li>
+                        <li> <a href="" class="q-tag"> MongoDB </a> </li>
+                        
+                    </ul>
+                    <div class="clearfix"></div>
+                    <a href="" itemtype="" itemscope="" itemprop="author">
+                    <span class="author-avatar">
+                        <img alt="" class="avatar" src="" itemprop="image">                    </span>
+                        <span class="author-name" itemprop="name">admin</span>
+                    </a>
+                 
+                <span class="question-time" datetime="on June 5, 2014" itemprop="dateCreated">
+                    Asked on June 5, 2014 in   </span>
+                    <span class="question-category"><a ng-href="/delete-category/{{category._id}}">{{category.categoryname | cut:true:60: ' ...'}}.</a></span> </div>
+            </div>
+        </div><!-- end left content -->
+        <div class="col-md-5 col-xs-5 q-right-content">
+            <ul class="question-statistic">
+                <li class=""><span class="question-answers" itemprop="answerCount">{{category.posts.length}}</span> Topics</li>
+                 <li></li> <li></li> <li></li>
+                <li><span class="question-views">{{category.views}}</span>views </li>
+                
+
+                <!-- <li class=""><span class="question-answers" itemprop="answerCount">1</span> answers</li> 
+                <li><span class="question-votes" itemprop="upvoteCount">0</span>votes </li> -->
+            </ul>
+            <div class="pumping">
+                            </div>
+        </div><!-- end right content -->
+        <div class="clearfix"></div>
+    </div>
+</li>            </ul>
+        </div>
+    </div>
+</div>
+</div>
+        
+        <!-- <div class="container">
+            <div class="table-wrap">
+                <div class="row post-row" ng-repeat="category in categories | orderBy: rowFilter">
+                    <div class="col-md-8 col-sm-7 col-xs-8">
+                        <p><a href="/categories/{{category.categoryslug}}">{{category.categoryname | cut:true:60: ' ...'}}</a> <a class="delete-button"  ng-href="/delete-category/{{category._id}}" ng-show="isAdmin"><i class="fa fa-times-circle-o"></i></a></p>
+                        <p ng-if="category.categorydescription" class="category-description">{{category.categorydescription | cut:true:60: ' ...'}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-3 col-xs-4">
+                        <p>{{category.posts.length}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs">
+                        <p>{{category.views}}</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->       
+    </div>
+   
+
+
+
+

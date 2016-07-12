@@ -1,0 +1,65 @@
+<style>
+li{
+    list-style:none;
+}
+.submit-btn{
+    margin-top: 20px;
+    border-radius: 0px;
+    background: rgb(255,0,0);
+    color: #ccc;
+}
+.fa-mobile{
+    font-size: 20px;
+}
+input[type="text"]{
+    border-radius: 0px;
+}
+textArea{
+   border-radius: 0px;
+   resize: vertical;
+   width:50%;
+}
+.input-group-addon{
+    border-radius: 0px;
+    color: rgb(255,0,0);
+}
+</style>
+<div class="container">
+	<div class="row">
+		<form name="form1" nonvalidate>
+		<h1>Add Blog</h1>{{error}}
+		<div class="form-part">
+			
+					<div class="form-group shaddow">
+						<div class="input-group">
+							<span class="input-group-addon no-radius"><i class="fa fa-user"></i></span>
+							<input type="text" class="form-control no-radius" aria-describedby="inputGroupSuccess1Status" ng-model="title" placeholder="Title*" name="title" required="required">
+						</div>
+					</div>
+				
+					<div class="form-group">
+						<div class="input-group shaddow">
+							<span class="input-group-addon no-radius"><i class="fa fa-envelope"></i></span>
+							<input type="file" required="required" file-model="file" name="file" placeholder="Image*" aria-describedby="inputGroupSuccess1Status" class="form-control no-radius">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group shaddow">
+							<span class="input-group-addon no-radius"><i class="fa fa-mobile"></i></span>
+							<input type="text" class="form-control no-radius" aria-describedby="inputGroupSuccess1Status" placeholder="Enter Tags*" name="tags" ng-model="tags" required="required">
+						</div>
+					</div>
+                                        
+					   <div class="form-group">
+		<textarea class="form-control" type="textarea" ng-model="message" id="message" placeholder="Message" maxlength="10000" maxwidth="100" rows="10"></textarea>
+		<!--<span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>-->
+	</div>
+	  <button class="btn btn-default" ng-click="addBlog()">Submit</button> 
+						<!--<input type="submit" class="btn submit-btn shaddow" value="Send" ng-click="addBlog()">-->
+				   
+			 
+			</div>
+		</form>
+	</div>
+</div>

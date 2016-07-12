@@ -1,0 +1,170 @@
+    <!-- HANDLE USER MESSAGES -->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message" ng-show="userMessage !=''">
+                    <button class="btn hide-message-btn" ng-click="hideMessage()"><i class="fa fa-times"></i></button>
+                    <p>{{userMessage}}</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- HANDLE SERVER ERRORS -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message warning" ng-show="serversideError !=''">
+                    <p>{{serversideError}}</p>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- REGISTRATION FORM -->
+<div id="form-container">
+<div class="container">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <form role="form" name="registerform" ng-submit="register()" novalidate>
+            <h2>Please Sign Up <small>!</small></h2>
+            <hr class="colorgraph">
+            <div class="row">
+
+
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg"ng-model="user.username" name="username" required placeholder="User Name" tabindex="1">
+                    <div class="error-container" ng-messages="registerform.username.$error" ng-if="registerform.username.$touched">
+                                <p ng-message="required">Your Username is required.</p>
+                            </div>
+                    
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="lastname" id="lastname" class="form-control input-lg" ng-model="user.lastname" required placeholder="Last Name"  tabindex="2">
+                       <div class="error-container" ng-messages="registerform.lastname.$error" ng-if="registerform.lastname.$touched">
+                                <p ng-message="required">Your Lastname is required.</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <input type="email" name="email" id="user.email" class="form-control input-lg" ng-model="user.email"  required placeholder="Email Address" tabindex="4">
+            <div class="error-container" ng-messages="registerform.email.$error" ng-if="registerform.email.$touched">
+                                <p ng-message="required">Your Email is required.</p>
+                                <p ng-message="email">Not valid email!</p>
+                            </div>
+                   
+            </div>
+        
+
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" ng-model="user.password"  ng-minlength="6" required placeholder="Password" tabindex="5">
+                          <div class="error-container" ng-messages="registerform.password.$error" ng-if="registerform.password.$touched">
+                           <p ng-message="required">Your Password is Required.</p>
+                           <p ng-message="minlength">Your Password must be at least 6 characters long.</p> 
+                          </div>
+                    
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="password" ng-model="user.confirmpassword" name="confirmpassword" required confirm-pwd="user.password"  class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+                            <div class="error-container" ng-messages="registerform.confirmpassword.$error" ng-if="registerform.confirmpassword.$touched">
+                                <p ng-message="required">You must confirm your password.</p>
+                                <p ng-message="password">You must confirm your password.</p>
+                            </div>                   
+                    </div>
+                </div>
+            </div>
+            
+           <!--  <div class="form-group">
+      
+           <input type="file" class="form-control input-lg" file-model="registrationForm.user.myFile">
+        </div> -->
+            
+            <!-- <div class="form-group"> 
+      <label class="control-label col-sm-2" for="pwd">Gender:</label>
+    <div class="radio">
+      <label><input type="radio" name="gender" ng-model="registrationForm.user.gender" value="male">Male</label>
+      <label><input type="radio" name="gender" ng-model="registrationForm.user.gender" value="female">Female</label>
+    </div>
+     </div> -->
+            
+            <hr class="colorgraph">
+
+
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <button class="btn btn-primary btn-block btn-lg" type="submit" ng-disabled="registerform.$invalid"><i class="fa fa-plus-circle"></i> Register</button>
+             <!-- <button  class="btn btn-primary btn-block btn-lg" ng-disabled="registerform.$invalid"><i class="fa fa-plus-circle"></i>Register</button> -->
+        <div class="user-message standard">
+                            Already have an account? <a href="/login">Log In</a>
+                        </div>
+        </div>
+        </div>
+            
+            
+        </form>
+    </div>
+</div>
+
+</div>
+</div>
+
+
+
+    <!-- <div id="form-container">
+        <div class="container">
+            <div class="row">
+                <form name="registerform" ng-submit="register()" novalidate >
+                    <div class="col-md-offset-4 col-sm-offset-3 col-md-4 col-sm-6">
+                        <h1 class="page-title">Create an Account</h1>
+                        <div class="user-message note">Creating an account is completely free. You must be logged in to participate in discussion or make posts.</div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" ng-model="user.email" name="email" required/>
+                            <div class="error-container" ng-messages="registerform.email.$error" ng-if="registerform.email.$touched">
+                                <p ng-message="required">Your Email is required.</p>
+                                <p ng-message="email">Not valid email!</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" ng-model="user.username" name="username" required/>
+                            <div class="error-container" ng-messages="registerform.username.$error" ng-if="registerform.username.$touched">
+                                <p ng-message="required">Your username is required.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" ng-model="user.password" name="password" required ng-minlength="6" />
+                            <div class="error-container" ng-messages="registerform.password.$error" ng-if="registerform.password.$touched">
+                                <p ng-message="required">Your password is required.</p>
+                                <p ng-message="minlength">Your password must be at least 6 characters long.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword">Confirm Password</label>
+                            <input type="password" class="form-control" ng-model="user.confirmpassword" name="confirmpassword" required confirm-pwd="user.password" />
+                            <div class="error-container" ng-messages="registerform.confirmpassword.$error" ng-if="registerform.confirmpassword.$touched">
+                                <p ng-message="required">You must confirm your password.</p>
+                                <p ng-message="password">You must confirm your password.</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary add-margin-bottom" type="submit" ng-disabled="registerform.$invalid"><i class="fa fa-plus-circle"></i> Register</button>
+                        <div class="user-message standard">
+                            Already have an account? <a href="/login">Log In</a>
+                        </div>
+                    </div>
+                </form>   
+            </div>
+        </div>
+    </div> -->

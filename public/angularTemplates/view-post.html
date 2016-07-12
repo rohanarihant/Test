@@ -1,0 +1,1185 @@
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+   $('.panel-google-plus > .panel-footer > .input-placeholder, .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > button[type="reset"]').on('click', function(event) {
+        var $panel = $(this).closest('.panel-google-plus');
+            $comment = $panel.find('.panel-google-plus-comment');
+            
+        $comment.find('.btn:first-child').addClass('disabled');
+        $comment.find('textarea').val('');
+        
+        $panel.toggleClass('panel-google-plus-show-comment');
+        
+        if ($panel.hasClass('panel-google-plus-show-comment')) {
+            $comment.find('textarea').focus();
+        }
+   });
+   $('.panel-google-plus-comment > .panel-google-plus-textarea > textarea').on('keyup', function(event) {
+        var $comment = $(this).closest('.panel-google-plus-comment');
+        
+        $comment.find('button[type="submit"]').addClass('disabled');
+        if ($(this).val().length >= 1) {
+            $comment.find('button[type="submit"]').removeClass('disabled');
+        }
+   });
+});
+
+
+</script>
+
+
+
+<style type="text/css">
+
+.panel-google-plus {
+    position: relative;
+    border-radius: 0px;
+    border: 1px solid rgb(216, 216, 216);
+    font-family: 'Roboto', sans-serif;
+}
+.panel-google-plus > .dropdown {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+.panel-google-plus > .dropdown > span > span {
+    font-size: 10px;   
+}
+.panel-google-plus > .dropdown > .dropdown-menu {
+    left: initial;
+    right: 0px;
+    border-radius: 2px;
+}
+.panel-google-plus > .panel-google-plus-tags {
+    position: absolute;
+    top: 35px;
+    right: -3px;
+}
+.panel-google-plus > .panel-google-plus-tags > ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.panel-google-plus > .panel-google-plus-tags > ul:hover {
+    box-shadow: 0px 0px 3px rgb(0, 0, 0);   
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);   
+}
+.panel-google-plus > .panel-google-plus-tags > ul > li {
+    display: block;
+    right: 0px;
+    width: 0px;
+    padding: 5px 0px 5px 0px;
+    background-color: rgb(245, 245, 245);
+    font-size: 12px;
+    overflow: hidden;
+}
+.panel-google-plus > .panel-google-plus-tags > ul > li::after {
+    content:"";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    border-right: 3px solid rgb(66, 127, 237);
+}
+.panel-google-plus > .panel-google-plus-tags > ul:hover > li,
+.panel-google-plus > .panel-google-plus-tags > ul > li:first-child {
+    padding: 5px 15px 5px 10px;
+    width: auto;
+    cursor: pointer;
+    margin-left: auto;
+}
+.panel-google-plus > .panel-google-plus-tags > ul:hover > li {
+    background-color: rgb(255, 255, 255);   
+}
+.panel-google-plus > .panel-google-plus-tags > ul > li:hover {
+    background-color: rgb(66, 127, 237);
+    color: rgb(255, 255, 255);
+}
+.panel-google-plus > .panel-heading,
+.panel-google-plus > .panel-footer {
+    background-color: rgb(255, 255, 255);
+    border-width: 0px; 
+}
+.panel-google-plus > .panel-heading {
+    margin-top: 20px;    
+    padding-bottom: 5px; 
+}
+.panel-google-plus > .panel-heading > img { 
+    margin-right: 15px;
+}
+.panel-google-plus > .panel-heading > h3 {
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.panel-google-plus > .panel-heading > h5 {
+    color: rgb(153, 153, 153);
+    font-size: 12px;
+    font-weight: 400;
+}
+.panel-google-plus > .panel-body {
+    padding-top: 5px;
+    font-size: 13px;
+}
+.panel-google-plus > .panel-body > .panel-google-plus-image {
+    display: block;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(217, 217, 217);
+}
+.panel-google-plus > .panel-body > .panel-google-plus-image > img {
+    max-width: 100%;
+}
+
+.panel-google-plus > .panel-footer {
+    font-size: 14px;
+    font-weight: 700;
+    min-height: 54px;
+    margin-bottom: 10px;
+}
+.panel-google-plus > .panel-footer > .btn {
+    float: left;
+    margin-right: 8px;
+}
+.panel-google-plus > .panel-footer > .input-placeholder {
+    display: block;
+    margin-left: 98px;
+    color: rgb(153, 153, 153);
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 6px 7px;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+}
+.panel-google-plus.panel-google-plus-show-comment > .panel-footer > .input-placeholder {
+    display: none;   
+}
+.panel-google-plus > .panel-google-plus-comment {
+    display: none;
+    padding: 10px 20px 15px;
+    border-top: 1px solid rgb(229, 229, 229);
+    background-color: rgb(245, 245, 245);
+}
+.panel-google-plus.panel-google-plus-show-comment > .panel-google-plus-comment {
+    display: block;
+}
+/*.panel-google-plus > .panel-google-plus-comment > img {
+    float: left;   
+}*/
+.panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea {
+    float: right;
+    width: calc(100% - 56px);
+}
+.panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > textarea {
+    display: block;
+    /*margin-left: 60px;
+    width: calc(100% - 56px);*/
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(217, 217, 217);
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+    resize: vertical;
+}
+.panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > .btn {
+    margin-top: 10px;
+    margin-right: 8px;
+    width: 100%;
+}
+@media (min-width: 992px) {
+    .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > .btn {
+        width: auto;
+    }    
+}
+
+
+.panel-google-plus .btn {
+    border-radius: 3px;   
+}
+.panel-google-plus .btn-default {
+    border: 1px solid rgb(217, 217, 217);
+    box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 0px 0px;
+}
+.panel-google-plus .btn-default:hover, 
+.panel-google-plus .btn-default:focus, 
+.panel-google-plus .btn-default:active {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);    
+}
+.beforepagination {
+    margin-bottom: 0;
+}
+.post {
+    background-color: #ffffff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    box-shadow: 0 1px 2px #c9cccd;
+}
+.topic .userinfo {
+    width: 12%;
+}
+.post .userinfo {
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 0;
+    padding-top: 20px;
+}
+.pull-left {
+    float: left;
+}
+.post .avatar {
+    margin-left: 5px;
+    width: 37px;
+}
+.avatar {
+    position: relative;
+}
+.avatar img {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.avatar .green {
+    background-color: #80d3ab;
+}
+.avatar .status {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: #ffffff;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: #ffffff;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-right-color: #ffffff;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-top-color: #ffffff;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-top-style: solid;
+    border-top-width: 2px;
+    height: 12px;
+    line-height: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 12px;
+}
+.post .icons {
+    border-top-color: #f1f1f1;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 12px;
+    padding-top: 7px;
+    width: 48px;
+}
+.topic .posttext {
+    width: 88%;
+}
+.post .posttext {
+    color: #989c9e;
+    font-family: "Open Sans Light",sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+    padding-bottom: 15px;
+    padding-right: 30px;
+    padding-top: 20px;
+}
+.post h2 {
+    color: #363838;
+    font-family: "Open Sans",sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.post .posttext {
+    color: #989c9e;
+    font-family: "Open Sans Light",sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+}
+.postinfobot {
+    border-top-color: #f1f1f1;
+    border-top-style: solid;
+    border-top-width: 1px;
+    
+    padding-bottom: 0;
+    padding-left: 94px;
+    padding-right: 30px;
+    padding-top: 0;
+}
+.postinfobot .likeblock {
+    width: 120px;
+}
+.up {
+    color: #1abc9c;
+    font-size: 12px;
+}
+.up i, .down i {
+    font-size: 20px;
+    padding-right: 10px;
+}
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+.down {
+    color: #db7a7a;
+    font-size: 12px;
+    margin-left: 20px;
+}
+.up i, .down i {
+    font-size: 20px;
+    padding-right: 10px;
+}
+.postinfobot .prev {
+    width: 30px;
+}
+.postinfobot .prev a {
+    color: #bdc3c7;
+    font-size: 18px;
+}
+.postinfobot .posted {
+    color: #bdc3c7;
+    font-family: "Open Sans Regular",sans-serif;
+    font-size: 12px;
+    margin-left: 18px;
+    width: 300px;
+}
+.postinfobot .next {
+    text-align: right;
+    width: 90px;
+    margin-top: -15px;
+}
+.postinfobot .next a {
+    color: #bdc3c7;
+    font-size: 18px;
+}
+
+
+/* comment */
+.post {
+    background-color: #ffffff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    box-shadow: 0 1px 2px #c9cccd;
+    margin-bottom: 20px;
+}
+.topic .userinfo {
+    width: 12%;
+}
+.post .userinfo {
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 0;
+    padding-top: 20px;
+}
+.post .avatar {
+    margin-left: 5px;
+    width: 37px;
+}
+.avatar {
+    position: relative;
+}
+.avatar img {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.avatar .red {
+    background-color: #f27777;
+}
+.avatar .status {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: #ffffff;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: #ffffff;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-right-color: #ffffff;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-top-color: #ffffff;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-top-style: solid;
+    border-top-width: 2px;
+    height: 12px;
+    line-height: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 12px;
+}
+.post .icons {
+    border-top-color: #f1f1f1;
+    border-top-style: solid;
+    border-top-width: 1px;
+    margin-top: 12px;
+    padding-top: 7px;
+    width: 48px;
+}
+.topic .posttext {
+    width: 88%;
+}
+.post .posttext {
+    color: #989c9e;
+    font-family: "Open Sans Light",sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+    padding-bottom: 15px;
+    padding-right: 30px;
+    padding-top: 20px;
+}
+.pull-left {
+    float: left;
+}
+.textwraper {
+    background-color: #f1f1f1;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    padding-bottom: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 32px;
+}
+.post blockquote .original, .postreply {
+    color: #bdc3c7;
+    display: block;
+    font-family: "Open Sans Regular",sans-serif;
+    font-size: 12px;
+}
+.textwraper textarea {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #f1f1f1;
+    border-bottom-color: -moz-use-text-color;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: -moz-use-text-color;
+    border-left-style: none;
+    border-left-width: medium;
+    border-right-color: -moz-use-text-color;
+    border-right-style: none;
+    border-right-width: medium;
+    border-top-color: -moz-use-text-color;
+    border-top-style: none;
+    border-top-width: medium;
+    box-shadow: none;
+    width: 100%;
+}
+input:-moz-read-write, textarea:-moz-read-write {
+    -moz-user-modify: read-write !important;
+}
+textarea {
+    -moz-appearance: textfield-multiline;
+    -moz-binding: url("chrome://global/content/platformHTMLBindings.xml#textAreas");
+    -moz-user-select: text;
+    -x-system-font: none;
+    cursor: text;
+    letter-spacing: normal;
+    margin-block-end: 1px;
+    margin-block-start: 1px;
+    overflow-clip-box: ;
+    padding-inline-end: 1px;
+    padding-inline-start: 1px;
+    resize: both;
+    text-align: start;
+    text-indent: 0;
+    text-rendering: optimizelegibility;
+    text-shadow: none;
+    text-transform: none;
+    vertical-align: text-bottom;
+    white-space: pre-wrap;
+    word-spacing: normal;
+    word-wrap: break-word;
+}
+textarea > .anonymous-div, input > .anonymous-div, input::-moz-placeholder, textarea::-moz-placeholder, *|*::-moz-button-content, *|*::-moz-display-comboboxcontrol-frame, optgroup::before {
+    text-overflow: inherit;
+    unicode-bidi: inherit;
+}
+textarea::-moz-placeholder {
+    white-space: pre-wrap !important;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    display: inline-block !important;
+    opacity: 0.54;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    pointer-events: none !important;
+    resize: none !important;
+}
+textarea > .anonymous-div, input > .anonymous-div, input::-moz-placeholder, textarea::-moz-placeholder {
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    -moz-control-character-visibility: visible;
+    border-bottom-color: -moz-use-text-color !important;
+    border-bottom-style: none !important;
+    border-bottom-width: 0 !important;
+    border-image-outset: 0 0 0 0 !important;
+    border-image-repeat: stretch stretch !important;
+    border-image-slice: 100% 100% 100% 100% !important;
+    border-image-source: none !important;
+    border-image-width: 1 1 1 1 !important;
+    border-left-color: -moz-use-text-color !important;
+    border-left-style: none !important;
+    border-left-width: 0 !important;
+    border-right-color: -moz-use-text-color !important;
+    border-right-style: none !important;
+    border-right-width: 0 !important;
+    border-top-color: -moz-use-text-color !important;
+    border-top-style: none !important;
+    border-top-width: 0 !important;
+    display: inline-block;
+    ime-mode: inherit;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    overflow-clip-box: ;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding-bottom: inherit !important;
+    padding-left: inherit !important;
+    padding-right: inherit !important;
+    padding-top: inherit !important;
+    resize: inherit;
+    text-decoration-color: inherit;
+    text-decoration-line: inherit;
+    text-decoration-style: inherit;
+}
+.postinfobot {
+    border-top-color: #f1f1f1;
+    border-top-style: solid;
+    border-top-width: 1px;
+    line-height: 50px;
+    padding-bottom: 0;
+    padding-left: 94px;
+    padding-right: 30px;
+    padding-top: 0;
+}
+.pull-left {
+    float: left;
+}
+.notechbox {
+    width: 20px;
+}
+.notechbox input {
+    border-bottom-color: #bdc3c7;
+    border-left-color: #bdc3c7;
+    border-right-color: #bdc3c7;
+    border-top-color: #bdc3c7;
+    box-shadow: none;
+    margin-top: 8px;
+    width: 12px;
+}
+input[type="radio"], input[type="checkbox"] {
+    -moz-binding: none;
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    background-color: -moz-field !important;
+    block-size: 13px;
+    border-bottom-color: threedlightshadow !important;
+    border-bottom-style: inset !important;
+    border-bottom-width: 2px !important;
+    border-image-outset: 0 0 0 0 !important;
+    border-image-repeat: stretch stretch !important;
+    border-image-slice: 100% 100% 100% 100% !important;
+    border-image-source: none !important;
+    border-image-width: 1 1 1 1 !important;
+    border-left-color: threedlightshadow !important;
+    border-left-style: inset !important;
+    border-left-width: 2px !important;
+    border-right-color: threedlightshadow !important;
+    border-right-style: inset !important;
+    border-right-width: 2px !important;
+    border-top-color: threedlightshadow !important;
+    border-top-style: inset !important;
+    border-top-width: 2px !important;
+    color: -moz-fieldtext !important;
+    cursor: default;
+    inline-size: 13px;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+}
+input[type="checkbox"] {
+    -moz-appearance: checkbox;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    margin-block-end: 3px;
+    margin-block-start: 3px;
+    margin-inline-end: 3px;
+    margin-inline-start: 4px;
+}
+input {
+    -moz-user-select: text;
+    -x-system-font: -moz-field;
+    font-feature-settings: -moz-use-system-font;
+    font-kerning: -moz-use-system-font;
+    font-language-override: -moz-use-system-font;
+    font-synthesis: -moz-use-system-font;
+    font-variant-alternates: -moz-use-system-font;
+    font-variant-caps: -moz-use-system-font;
+    font-variant-east-asian: -moz-use-system-font;
+    font-variant-ligatures: -moz-use-system-font;
+    font-variant-numeric: -moz-use-system-font;
+    font-variant-position: -moz-use-system-font;
+    letter-spacing: normal;
+    overflow-clip-box: ;
+    text-align: start;
+    text-indent: 0;
+    text-rendering: optimizelegibility;
+    text-shadow: none;
+    text-transform: none;
+    word-spacing: normal;
+}
+textarea > .anonymous-div, input > .anonymous-div, input::-moz-placeholder, textarea::-moz-placeholder, *|*::-moz-button-content, *|*::-moz-display-comboboxcontrol-frame, optgroup::before {
+    text-overflow: inherit;
+    unicode-bidi: inherit;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    display: inline-block !important;
+    opacity: 0.54;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    pointer-events: none !important;
+    resize: none !important;
+}
+input > .anonymous-div, input::-moz-placeholder {
+    white-space: pre;
+}
+textarea > .anonymous-div, input > .anonymous-div, input::-moz-placeholder, textarea::-moz-placeholder {
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    -moz-control-character-visibility: visible;
+    border-bottom-color: -moz-use-text-color !important;
+    border-bottom-style: none !important;
+    border-bottom-width: 0 !important;
+    border-image-outset: 0 0 0 0 !important;
+    border-image-repeat: stretch stretch !important;
+    border-image-slice: 100% 100% 100% 100% !important;
+    border-image-source: none !important;
+    border-image-width: 1 1 1 1 !important;
+    border-left-color: -moz-use-text-color !important;
+    border-left-style: none !important;
+    border-left-width: 0 !important;
+    border-right-color: -moz-use-text-color !important;
+    border-right-style: none !important;
+    border-right-width: 0 !important;
+    border-top-color: -moz-use-text-color !important;
+    border-top-style: none !important;
+    border-top-width: 0 !important;
+    display: inline-block;
+    ime-mode: inherit;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    overflow-clip-box: ;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding-bottom: inherit !important;
+    padding-left: inherit !important;
+    padding-right: inherit !important;
+    padding-top: inherit !important;
+    resize: inherit;
+    text-decoration-color: inherit;
+    text-decoration-line: inherit;
+    text-decoration-style: inherit;
+}
+input > .anonymous-div, input::-moz-placeholder {
+    line-height: -moz-block-height;
+    word-wrap: normal !important;
+}
+.pull-right {
+    float: right;
+}
+.post blockquote .original, .postreply {
+    color: #bdc3c7;
+    display: block;
+    font-family: "Open Sans Regular",sans-serif;
+    font-size: 12px;
+}
+.pull-left {
+    float: left;
+}
+.smile a {
+    color: #bdc3c7;
+    font-size: 20px;
+    margin-right: 20px;
+}
+.post blockquote .original, .postreply {
+    color: #bdc3c7;
+    font-family: "Open Sans Regular",sans-serif;
+    font-size: 12px;
+}
+.btn-primary {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #1abc9c;
+    border-bottom-color: -moz-use-text-color;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: -moz-use-text-color;
+    border-left-style: none;
+    border-left-width: medium;
+    border-right-color: -moz-use-text-color;
+    border-right-style: none;
+    border-right-width: medium;
+    border-top-color: -moz-use-text-color;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-top-style: none;
+    border-top-width: medium;
+    box-shadow: none;
+    color: #ffffff;
+    font-family: "Open Sans Bold",sans-serif;
+    font-size: 14px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+
+</style>
+   
+<!-- USER MESSAGE DISPLAY BLOCK -->
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="user-message" ng-show="userMessage !=''">
+                <button class="btn hide-message-btn" ng-click="hideMessage()"><i class="fa fa-times"></i></button>
+                <p>{{userMessage}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="view-posts-display">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="right-post-btns admin-toolbar clearfix">
+                    <a class="right" ng-href="/login" ng-show="!isLoggedIn">Login To Post</a>
+                    <a class="right" ng-href="/add-post" ng-show="isLoggedIn"><i class="fa fa-plus-square"></i> Add New Post</a>
+					<a class="right delete-button" ng-href="/deletepost/{{post._id}}" ng-show="isLoggedIn"><i class="fa fa-times-circle-o"></i> Delete</a>
+					<a class="right delete-button" ng-href="/editpost/{{post._id}}" ng-show="isLoggedIn"><i class="fa fa-pencil-square-o"></i> Edit</a>
+					<a class="right close-button" ng-if="post.active == true" ng-href="/closepost/{{post._id}}" ng-show="isLoggedIn"><i class="fa fa-sign-out"></i> Close Discussion</a>
+					<a class="right close-button" ng-if="post.active == false" ng-href="/openpost/{{post._id}}" ng-show="isLoggedIn"><i class="fa fa-sign-out"></i> Reopen Discussion</a>
+				</div>
+			</div>
+		</div>
+     </div>
+     <div class="container">   
+		<div class="row">
+            <div class="col-md-12">
+                <div class="col-md-8">
+
+                    <div class="post beforepagination">
+                                <div class="topwrap">
+                                    <div class="userinfo pull-left">
+                                        <div class="avatar">
+                                            <img alt="" src="images/avatar.jpg">
+                                            <div class="status green">&nbsp;</div>
+                                        </div>
+
+                                        <div class="icons">
+                                            <img alt="" src="images/icon1.jpg"><img alt="" src="images/icon4.jpg"><img alt="" src="images/icon5.jpg"><img alt="" src="images/icon6.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="posttext pull-left">
+                                        <h2>Title: {{post.title}}</h2>
+                                        <pre >{{post.postcontent}}</pre>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>                              
+                                <div class="postinfobot">
+
+                                    <div class="likeblock pull-left">
+                                        <a class="up" ng-click="upvotePost(post)"><i class="fa fa-thumbs-o-up"></i>{{post.upvotes}}</a>
+                                        <a class="down" ng-click="downvotePost(post)"><i class="fa fa-thumbs-o-down"></i>{{post.downvotes}}</a>
+                                    </div>
+
+                                    <div class="prev pull-left">                                        
+                                        <a href="#"><i class="fa fa-reply"></i></a>
+                                    </div>
+
+                                    <div class="posted pull-left"><i class="fa fa-clock-o"></i> {{post.created | timeAgo}}</div>
+
+                                    <div class="next pull-right">                                        
+                                        <a href="#"><i class="fa fa-eye"></i>{{post.views}}</a>
+
+                                        <a href="#"><i class="fa fa-comment"></i>{{post.comments.length}}</a>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+</div>
+
+
+
+                
+<div class="row">
+     <div class="col-md-12 comment-container">
+         <div ng-show="post.active && isLoggedIn">
+            <form ng-submit="addComment(addcommentform.$valid)" class="add-comment-form" name="addcommentform" novalidate>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="post">
+                <form method="post" class="form" action="#">
+                                    <div class="topwrap">
+                                        <div class="userinfo pull-left">
+                                            <div class="avatar">
+                                                <img alt="" src="images/avatar4.jpg">
+                                                <div class="status red">&nbsp;</div>
+                                            </div>
+
+                                            <div class="icons">
+                                                <img alt="" src="images/icon3.jpg"><img alt="" src="images/icon4.jpg"><img alt="" src="images/icon5.jpg"><img alt="" src="images/icon6.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="posttext pull-left">
+                                            <div class="textwraper">
+                                                <div class="postreply">Post a Reply</div>
+                                                <textarea placeholder="Type your message here" id="reply" name="reply" ng-model="newComment"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>                              
+                                    <div class="postinfobot">
+
+                                        <div class="notechbox pull-left">
+                                            <input type="checkbox" class="form-control" id="note" name="note">
+                                        </div>
+
+                                        <div class="pull-left">
+                                            <label for="note"> Remember</label>
+                                        </div>
+
+                                        <div class="pull-right postreply">
+                                            <div class="pull-left smile"><a href="#"><i class="fa fa-smile-o"></i></a></div>
+                                            <div class="pull-left"><button class="btn btn-primary" type="submit">Post Reply</button></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+        </div>
+
+<!--<div class="row">
+        <div class="col-xs-12">
+            <div class="[ panel panel-default ] panel-google-plus">
+               <div class="panel-heading">
+                   <!--  <img class="[ img-circle pull-left ]" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" /> 
+                    <h3>Add your Comment</h3>
+                    <h5><span>Shared publicly</span> <!-- - <span>Jun 27, 2014</span> </h5>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="[ btn btn-default ]">+1</button>
+                    <button type="button" class="[ btn btn-default ]">
+                        <span class="[ glyphicon glyphicon-share-alt ]"></span>
+                    </button>
+                    <div class="input-placeholder">Add a comment...</div>
+                </div>
+                <div class="panel-google-plus-comment">
+                    <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+                    <div class="panel-google-plus-textarea">
+                        <textarea ng-model="newComment" placeholder="Add a Comment" required ng-maxlength="500" rows="4"></textarea>
+            <button type="submit" class="btn btn-primary" ng-disabled="addcommentform.$invalid">Add a Comment</button>
+                        <!-- <button type="submit" class="[ btn btn-success disabled ]">Post comment</button> 
+                        <button type="reset" class="[ btn btn-default ]">Cancel</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+                  <div class="row">
+                   
+                    <div class="col-md-9">
+        <textarea class="form-control comment-field" ng-model="newComment" placeholder="Add a Comment" required ng-maxlength="500" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn btn-primary" ng-disabled="addcommentform.$invalid">Add a Comment</button>
+                                        </div> 
+                                    </div> --> 
+                                </form>
+                            </div>
+                            <div ng-show="!isLoggedIn">
+                                <div class="btn btn-primary"><a href="/login" style="color:white;">
+                                You Must Be Logged In To Comment.</a>
+                                </div>
+                            </div>
+                            <div ng-show="!post.active && isLoggedIn">
+                                <div class="user-message">
+                                This Discussion Is Closed.
+                                </div>
+                            </div>
+                            <h4>{{post.comments.length}} Comment<span ng-if="post.comments.length != 1">s</span> on &quot;{{post.title | cut:true:20: ' ...'}}&quot;</h4>
+                            <div class="comment-block" ng-repeat="comment in post.comments | orderBy : -comment.created">
+                                <p class="post-created-date">Commented by <a ng-href="/user-profile/{{comment.author}}">{{comment.author}}</a> at <span title="{{comment.created | date:'MM-dd-yy @ h:mm a' }}">{{comment.created | timeAgo}}</span></p>
+                                <p class="comment-body">{{comment.body}}</p>
+                                <a id="{{comment._id}}" name="{{comment._id}}"></a>
+                                
+                                <div class="info-line">
+                                {{comment.upvotes}} Upvotes | {{comment.downvotes}} Downvotes
+                                </div>
+                                
+                                <div ng-show="isLoggedIn">
+                                    <span class="upvote-button" ng-click="upvoteComment(comment)"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+                                    <span class="downvote-button" ng-click="downvoteComment(comment)"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="recent-posts-feed">
+                        <h4>Recent Posts</h4>
+                        <div ng-if="posts.length <= 1">
+                            No Other Posts Available 
+                        </div>
+                        <div class="recent-post" ng-repeat="recentpost in posts | orderBy: '-created'" ng-if="recentpost.title != post.title">
+                            <a ng-href="/view-post/{{recentpost._id}}/{{recentpost.title | slugify}}">{{recentpost.title | cut:true:40: ' ...' }}</a>
+                            
+                            <div class="info-line">
+                                {{recentpost.upvotes}}&nbsp;Likes, {{recentpost.downvotes}}&nbsp;Dislikes, {{recentpost.comments.length}}&nbsp;Comments
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>        	
+		</div>	
+	</div>
+</div> 
+
+
+
+
+
+
+
+
+
+div class="row">
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="[ panel panel-default ] panel-google-plus">
+                <div class="dropdown">
+                    <span class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="[ glyphicon glyphicon-chevron-down ]"></span>
+                    </span>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+                <div class="panel-google-plus-tags">
+                    <ul>
+                        <li>#Millennials</li>
+                        <li>#Generation</li>
+                    </ul>
+                </div>
+                <div class="panel-heading">
+                    <img class="[ img-circle pull-left ]" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                    <h3>Robert McIntosh</h3>
+                    <h5><span>Shared publicly</span> - <span>Jun 27, 2014</span> </h5>
+                </div>
+                <div class="panel-body">
+                    <p>Do people born in 2000 get to choose if they are Generation Y or Generation Z? How do you decide what generation you want to belong to?</p>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="[ btn btn-default ]">+1</button>
+                    <button type="button" class="[ btn btn-default ]">
+                        <span class="[ glyphicon glyphicon-share-alt ]"></span>
+                    </button>
+                    <div class="input-placeholder">Add a comment...</div>
+                </div>
+                <div class="panel-google-plus-comment">
+                    <img class="img-circle" src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46" alt="User Image" />
+                    <div class="panel-google-plus-textarea">
+                        <textarea rows="4"></textarea>
+                        <button type="submit" class="[ btn btn-success disabled ]">Post comment</button>
+                        <button type="reset" class="[ btn btn-default ]">Cancel</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+
+
+
+<!--
+
+<div class="col-md-12">
+    <h3>Your Answer</h3>
+    <form method="POST" id="form_reply">
+     <input type="hidden" value="f7fd01f261" name="qa_nonce">
+      <input type="hidden" value="2275" name="post_parent">
+      <div class="wp-core-ui wp-editor-wrap tmce-active" id="wp-post_content-wrap">
+        <link media="all" type="text/css" href="http://www.demo.enginethemes.com/qaengine/wp-includes/css/dashicons.min.css?ver=4.5.2" id="dashicons-css" rel="stylesheet">
+        <link media="all" type="text/css" href="http://www.demo.enginethemes.com/qaengine/wp-includes/css/editor.min.css?ver=4.5.2" id="editor-buttons-css" rel="stylesheet">
+            <div class="wp-editor-container" id="wp-post_content-editor-container">
+                <div role="application" tabindex="-1" hidefocus="1" class="mce-tinymce mce-container mce-panel" id="mceu_9" style="visibility: hidden; border-width: 1px;">
+                    <div class="mce-container-body mce-stack-layout" id="mceu_9-body">
+                        <div role="group" tabindex="-1" hidefocus="1" class="mce-toolbar-grp mce-container mce-panel mce-stack-layout-item mce-first" id="mceu_10">
+                            <div class="mce-container-body mce-stack-layout" id="mceu_10-body">
+                                <div role="toolbar" class="mce-container mce-toolbar mce-stack-layout-item mce-first mce-last" id="mceu_11">
+                                    <div class="mce-container-body mce-flow-layout" id="mceu_11-body">
+                                        <div class="mce-container mce-flow-layout-item mce-first mce-btn-group" id="mceu_12" role="group">
+                                            <div id="mceu_12-body">
+                                                <div aria-labelledby="mceu_0" tabindex="-1" class="mce-widget mce-btn mce-first mce-last" id="mceu_0" role="button" aria-label="Bold">
+                                                    <button tabindex="-1" type="button" role="presentation"><i class="mce-ico mce-i-bold"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="mce-container mce-flow-layout-item mce-btn-group" id="mceu_13" role="group">
+                                    <div id="mceu_13-body">
+                                        <div aria-labelledby="mceu_1" tabindex="-1" class="mce-widget mce-btn mce-first mce-last" id="mceu_1" role="button" aria-label="Italic">
+                                            <button tabindex="-1" type="button" role="presentation"><i class="mce-ico mce-i-italic"></i></button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="mce-container mce-flow-layout-item mce-btn-group" id="mceu_14" role="group">
+                                        <div id="mceu_14-body">
+                                            <div aria-labelledby="mceu_2" tabindex="-1" class="mce-widget mce-btn mce-first mce-last" id="mceu_2" role="button" aria-label="Underline">
+                                                <button tabindex="-1" type="button" role="presentation"><i class="mce-ico mce-i-underline"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mce-container mce-flow-layout-item mce-btn-group" id="mceu_15" role="group">
+                                        <div id="mceu_15-body">
+                                            <div aria-labelledby="mceu_3" tabindex="-1" class="mce-widget mce-btn mce-first" id="mceu_3" role="button" aria-label="Insert/edit link">
+                                                <button tabindex="-1" type="button" role="presentation"><i class="mce-ico mce-i-link"></i></button>
+                                            </div>
+                                            <div aria-labelledby="mceu_4" tabindex="-1" class="mce-widget mce-btn mce-last" id="mceu_4" role="button" aria-label="Remove link">
+                                                <button tabindex="-1" type="button" role="presentation"><i class="mce-ico mce-i-unlink"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mce-container mce-flow-layout-item mce-last mce-btn-group" id="mceu_16" role="group">
+                                        <div id="mceu_16-body">
+                                            <div aria-labelledby="mceu_5" tabindex="-1" class="mce-widget mce-btn mce-first" id="mceu_5" role="button" aria-label="Bullet list">
+                                                <button tabindex="-1" type="button" role="presentation"><i class="mce-ico mce-i-bullist"></i></button>
+                                            </div>
+                                        <div aria-labelledby="mceu_6" tabindex="-1" class="mce-widget mce-btn" id="mceu_6" role="button" aria-label="Numbered list">
+                                            <button tabindex="-1" type="button" role="presentation"><i class="mce-ico mce-i-numlist"></i></button>
+                                        </div>
+                                        <div aria-labelledby="mceu_7" tabindex="-1" class="mce-widget mce-btn" id="mceu_7" role="button" aria-label="Upload Images">
+                                            <button tabindex="-1" type="button" role="presentation"><i style="background-image: url('http://www.demo.enginethemes.com/qaengine/wp-content/themes/qaengine/js/plugins/feimage/img/upload-image.gif')" class="mce-ico mce-i-none"></i></button>
+                                        </div>
+                                        <div aria-labelledby="mceu_8" tabindex="-1" class="mce-widget mce-btn mce-last" id="mceu_8" role="button" aria-label="Insert Code">
+                                            <button tabindex="-1" type="button" role="presentation"><i class="mce-ico mce-i-wp_code"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="group" tabindex="-1" hidefocus="1" class="mce-edit-area mce-container mce-panel mce-stack-layout-item mce-last" id="mceu_17" style="border-width: 1px 0px 0px;">
+                    <iframe frameborder="0" id="post_content_ifr" allowtransparency="true" title="Rich Text Area. Press Alt-Shift-H for help" style="width: 100%; height: 150px; display: block;" src="javascript:&quot;&quot;"></iframe>
+                </div>
+            </div>
+        </div>
+        <textarea id="post_content" name="post_content" cols="40" autocomplete="off" tabindex="5" rows="20" class="wp-editor-area" style="display: none;" aria-hidden="true"></textarea>
+    </div>
+</div>
+<div class="row submit-wrapper">
+    <div class="col-md-2">
+     <button class="btn-submit" id="submit_reply"> Post answer </button>
+    </div>
+ <div class="col-md-10 term-texts"> By posting your answer, you agree to the
+  <a href="http://www.demo.enginethemes.com/qaengine/term/" target="_blank">privacy policy</a> and <a href="http://www.demo.enginethemes.com/qaengine/term/" target="_blank">terms of service.</a>
+</div>
+</div>
+</form>
+</div>
+-->
+
+
+
+

@@ -1,0 +1,780 @@
+
+  <style>
+  .widget .widget-content {
+    clear: left;
+    padding-bottom: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 15px;
+}
+
+.question-action, .question-list-item, .node-list-item {
+    padding-left: 190px;
+}
+
+.question-action, .question-list-item, .node-list-item {
+    border-bottom-color: #cccccc;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+    color: #999;
+    line-height: 100%;
+    margin-bottom: 15px;
+    padding-bottom: 25px;
+    padding-right: 0;
+    position: relative;
+}
+
+.question-action .title, .question-list-item .title, .node-list-item .title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-left: 50px;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+h1, h2, h3, h4, h5 {
+    line-height: 120%;
+    word-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: inherit;
+    font-family: inherit;
+    text-rendering: optimizelegibility;
+}
+
+a {
+    outline-color: -moz-use-text-color !important;
+    outline-style: none !important;
+    outline-width: medium !important;
+}
+a {
+    color: #00649d;
+    text-decoration-color: -moz-use-text-color;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    word-wrap: break-word;
+}
+a {
+    outline-color: -moz-use-text-color !important;
+    outline-style: none !important;
+    outline-width: medium !important;
+}
+.question-action p.posting-user, .question-list-item p.posting-user, .node-list-item p.posting-user {
+    color: #666666;
+    float: right;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-style: italic;
+    margin-left: 10px;
+    margin-top: 6px;
+}
+.question-action p, .question-list-item p, .node-list-item p {
+    margin-bottom: 0;
+}
+p {
+    margin-right: 0;
+}
+.question-action .tags-wrapper, .question-list-item .tags-wrapper, .node-list-item .tags-wrapper {
+    margin-top: 5px;
+    margin-left: 54px;
+}
+.question-action, .question-list-item, .node-list-item {
+    color: #999;
+    line-height: 100%;
+}
+
+.question-action .tags a.tag, .question-list-item .tags a.tag, .node-list-item .tags a.tag {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+.tags .tag {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #efefef;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-bottom-color: #cccccc;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: #cccccc;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #cccccc;
+   
+    border-right-width: 1px;
+    border-top-color: #cccccc;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    color: #444444;
+    cursor: pointer;
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 2;
+    max-width: 180px;
+    padding-bottom: 1px !important;
+    padding-left: 45px !important;
+    padding-right: 43px !important;
+    padding-top: 1px !important;
+    position: relative;
+    text-decoration-color: -moz-use-text-color;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    text-transform: uppercase;
+}
+.tags .tag {
+    padding-bottom: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 0;
+}
+a {
+    outline-color: -moz-use-text-color !important;
+    outline-style: none !important;
+    outline-width: medium !important;
+}
+a {
+    word-wrap: break-word;
+}
+a {
+    outline-color: -moz-use-text-color !important;
+    outline-style: none !important;
+    outline-width: medium !important;
+}
+.question-action .counts, .question-list-item .counts, .node-list-item .counts {
+    font-size: 11px;
+    left: 0;
+    padding-top: 0;
+    position: absolute;
+    right: auto;
+    top: 0;
+}
+.question-action .counts p.answers.accepted, .question-list-item .counts p.answers.accepted, .node-list-item .counts p.answers.accepted {
+    background-color: #17af4b;
+    color: #ffffff;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+}
+.question-action .counts p.answers.accepted, .question-list-item .counts p.answers.accepted, .node-list-item .counts p.answers.accepted {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.question-action .counts p, .question-list-item .counts p, .node-list-item .counts p {
+    display: inline-block;
+    font-size: 11px;
+    margin-left: 0;
+    margin-right: 5px;
+    padding-bottom: 8px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-top: 8px !important;
+}
+.question-action .counts p, .question-list-item .counts p, .node-list-item .counts p {
+    padding-bottom: 8px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-top: 8px !important;
+}
+.question-action p, .question-list-item p, .node-list-item p {
+    margin-bottom: 0;
+}
+p {
+    margin-top: 0;
+}
+.question-action .counts p span, .question-list-item .counts p span, .node-list-item .counts p span {
+    display: block;
+    font-size: 2.5em;
+    font-weight: 200;
+    line-height: 1;
+    text-align: center;
+}
+
+
+.pn-il, .pn-copy .pn-il, .pn-subtabs, .pn-columns.blocks {
+    font-size: 0rem;
+    letter-spacing: -1em;
+    word-spacing: -1em;
+}
+.pn-il, .pn-copy .pn-il, .pn-subtabs, .pn-columns.blocks {
+    display: inline-block;
+    float: left;
+    margin-top: 2px;
+}
+
+.pn-subtab > a, .pn-subtab-text {
+    line-height: 2;
+    padding-left: 0.857143em;
+    padding-right: 0.857143em;
+}
+
+.pn-subtab + .pn-subtab {
+    border-left-color: #ccc;
+    border-left-style: solid;
+    border-left-width: 1px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+.pn-il-item, .pn-copy .pn-il-item, .pn-copy .pn-il > li, .pn-subtab, .pn-columns.blocks > div {
+    font-size: 1rem;
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+.pn-il-item, .pn-copy .pn-il-item, .pn-copy .pn-il > li, .pn-subtab, .pn-columns.blocks > div {
+    display: inline-block;
+    font-size: 1.50rem;
+    letter-spacing: normal;
+    
+    word-spacing: normal;
+}
+.nav {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.nav-pills.sort li + li {
+    border-left-color: #cccccc;
+    border-left-style: solid;
+    border-left-width: 1px;
+}
+.widget .widget-header > span#nav-sort-label {
+    margin-top: 6px;
+}
+.widget .widget-header > span#nav-sort-label {
+    color: #000000;
+    float: right;
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 1.15em;
+    font-style: italic;
+    padding-right: 0;
+}
+.widget .widget-header > .sort {
+    clear: none;
+    float: right;
+    margin-bottom: 0;
+}
+.prm, .phm, .pam {
+    padding-right: 1.25rem !important;
+}
+.widget .widget-header {
+    border-bottom-color: -moz-use-text-color;
+    border-bottom-style: inset;
+    border-bottom-width: medium;
+}
+h2#question-list-title {
+    color: #333;
+    font-size: 24px;
+    padding-bottom: 1em;
+}
+h1, h2, h3, h4, h5 {
+    line-height: 120%;
+    word-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    text-rendering: optimizelegibility;
+}
+div#smart-space-tags {
+    font-size: 0.7rem;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+.nav-tabs > li, .nav-pills > li {
+    float: left;
+}
+.nav-pills.sort li.active a {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+}
+.nav-pills.sort li a {
+    font-size: 1.25rem;
+}
+div#smart-space-tags {
+    font-size: 1.7rem;
+}
+.tags {
+    padding-bottom: 20px;
+     font-size: 1.7rem;
+}
+.navbar .navbar-inner .navbar-action {
+    color: #ffffff !important;
+    margin-bottom: 5px;
+    margin-right: 8px;
+}
+.navbar-inner .navbar-action {
+    color: #ffffff !important;
+}
+.navbar .btn, .navbar .btn-group {
+    margin-top: 5px;
+}
+.btn-group {
+    float: right;
+    display: inline-block;
+    font-size: 0;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding-top: 13px;
+}
+li {
+    line-height: 20px;
+}
+.navbar .navbar-inner .nav-links {
+    list-style-image: none;
+    list-style-type: none;
+}
+#create {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: #f19027;
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    border-bottom-color: -moz-use-text-color;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color: -moz-use-text-color;
+    border-left-style: none;
+    border-left-width: medium;
+    border-right-color: -moz-use-text-color;
+    border-right-style: none;
+    border-right-width: medium;
+    border-top-color: -moz-use-text-color;
+    border-top-style: none;
+    border-top-width: medium;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    float: right;
+}
+.navbar .btn-group .btn, .navbar .input-prepend .btn, .navbar .input-append .btn, .navbar .input-prepend .btn-group, .navbar .input-append .btn-group {
+    margin-top: 0;
+}
+.btn-group > .btn:last-child, .btn-group > .dropdown-toggle {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.btn-group > .btn:first-child {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    margin-left: 0;
+}
+.btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover {
+    font-size: 14px;
+}
+.btn-group > .btn {
+    position: relative;
+}
+.btn-success {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.btn {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    display: inline-block;
+    line-height: 20px;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+a {
+    outline-color: -moz-use-text-color !important;
+    outline-style: none !important;
+    outline-width: medium !important;
+}
+a {
+    text-decoration-color: -moz-use-text-color;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    word-wrap: break-word;
+}
+a {
+    outline-color: -moz-use-text-color !important;
+    outline-style: none !important;
+    outline-width: medium !important;
+}
+.navbar .navbar-inner .navbar-action {
+    color: #ffffff !important;
+}
+.navbar-inner .navbar-action {
+    color: #ffffff !important;
+}
+.navbar .navbar-inner .nav-links {
+    list-style-image: none;
+    list-style-type: none;
+}
+.quest {
+    font-size: 28px;
+    line-height: 87px;
+    color: #f19027;
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden; 
+  padding: 0;
+}
+
+.tags li {
+  float: left; 
+}
+
+.tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 38px 0 42px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+.tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 20px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: crimson;
+  color: #fff;
+}
+
+.tag:hover::after {
+   border-left-color: crimson; 
+   color: #fff;
+}
+
+/*answer not accepted*/
+p.answers.notaccepted, .question-list-item .counts p.answers.notaccepted, .node-list-item .counts p.answers.notaccepted {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.question-action .counts p.answers.notaccepted, .question-list-item .counts p.answers.notaccepted, .node-list-item .counts p.answers.notaccepted {
+    background-color: #f19027;
+    color: #ffffff;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+}
+
+  </style>  <!-- USER MESSAGE DISPLAY BLOCK -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message" ng-show="userMessage !=''">
+                    <button class="btn hide-message-btn" ng-click="hideMessage()"><i class="fa fa-times"></i></button>
+                    <p>{{userMessage}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SHOW RECENT POSTS TABLE HEADER AND CONTROLS -->
+    <div id="posts-display">
+        <div class="container">
+            <div class="row">
+				<div class="col-md-12 clearfix">
+                    <div class="btn-group navbar-action">
+                        <a id="create" class="btn btn-success" ng-href="/add-post" ng-show="isLoggedIn">Ask a question</a>
+                    </div>
+
+					
+				</div>
+			</div>
+			
+		</div>
+
+      
+        <div ng-if="posts.length == 0">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="user-message warning">
+							<p>No Question  To Display</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+   
+
+
+        
+
+       
+
+
+
+
+ 
+
+
+
+
+
+
+
+      
+  <div class="container-fluid">
+    <!-- <div class="span6 mainContent"> --> 
+
+    <div class="col-md-8">
+       <div class="sticky-posts-list"></div> 
+       <div class="widget"> 
+
+            <div class="widget-header"> 
+           <i class="icon-list-alt"></i> 
+           <h2 id="question-list-title">Questions in this Forum are</h2> 
+           <!--build smart space tags list--> 
+           <div id="smart-space-tags"> 
+            <p>Feel Free to Post any Question:- 
+           </div> 
+           <div class="pn-il"> 
+            <span class="pn-subtab "> <span class="pn-subtab-text"><strong>All</strong></span> </span> 
+            <span class="pn-subtab "> <a title="These questions have 0 answers" ng-click="orderByunanswered()">Unanswered</a> </span>  
+           </div> 
+           <ul class="nav nav-pills sort prm"> 
+            <li title="Active" class="active"><a ng-click="orderByTitle()">Title
+                <span ng-show="rowFilter == 'title'"><i class="fa fa-arrow-circle-down"></i></span>
+                <span ng-show="rowFilter == '-title'"><i class="fa fa-arrow-circle-up"></i></span>
+                </a></li>
+            <li title="Active" class="active"><a ng-click="orderByReplies()">Replies
+                <span ng-show="rowFilter == 'comments.length'"><i class="fa fa-arrow-circle-down"></i></span>
+                <span ng-show="rowFilter == '-comments.length'"><i class="fa fa-arrow-circle-up"></i></span>
+                </a></li>     
+            <li title="Active" class="active"><a ng-click="orderByView()">Views
+                            <span ng-show="rowFilter == 'views'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == '-views'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </a></li>
+            <li title="Active" class="active"><a ng-click="orderByVotes()">Votes
+                            <span ng-show="rowFilter == '-upvotes'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == 'upvotes'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </a></li>
+            </ul> 
+           <span id="nav-sort-label">Sort by:</span> 
+          </div>
+
+        <div class="widget-content" id="id_topic_content"> 
+           <div class="node-list-item question-list-item" role="listitem" ng-repeat="post in posts | orderBy: rowFilter |  startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit"> 
+            <div class="info"> 
+             <h4 class="title"><a href="/view-post/{{post._id}}/{{post.title | slugify}}">{{post.title | cut:true:60: ' ...'}}</a> </h4> 
+             <p class="posting-user">  answered by <a data-hasqtip="0" href="https://developer.ibm.com/answers/users/251981/alexpahl/" rel="user" nodeid="251981">{{post.author }}</a> <span title="">{{post.created | timeAgo }}</span> </p> 
+             <div class="tags-wrapper"> 
+              <ul class="question-tags" ng-repeat="x in post.tags">
+                            <li>
+                            <a class="q-tag" href=" ">{{x.text}}</a>
+                            </li>
+              </ul>
+              
+             </div> 
+            </div> 
+            <div class="counts"> 
+             <p ng-class="({{post.comments.length}}>0)? 'answers accepted' : 'answers notaccepted'" title="This question has an accepted answer"> <span>{{post.comments.length }}</span> Answer</p> 
+             <p id="post-276557-score-wrapper" class="votes"> <span>{{post.upvotes}}</span> Likes</p> 
+             <p id="post-276557-score-wrapper" class="votes"> <span>{{post.downvotes}}</span> DisLikes</p> 
+             <p class="views"><span>{{post.views }}</span> Views</p> 
+            </div> 
+          </div> 
+        </div> 
+       </div> 
+       <pagination page="currentPage" max-size="noOfpages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+    </div>
+
+
+<div class="col-md-1"></div>
+<!-- <div class="span3 sidebarTwo"> -->
+<div class="col-md-3"> 
+        <div class="widget widget-statistic"><ul><li class="questions-count"><p>Questions</p><p> <span>{{count}}</span></p></li><li class="members-count"><p>Members</p><p> <span>{{users}}</span></p></li></ul></div>
+         <div> 
+          <div class="widget" id="top-users-widget"> 
+           <div class="widget-header"> 
+            <h3>Top dW users</h3> 
+           </div> 
+           <div class="pn-module-body"> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="15" href="https://developer.ibm.com/answers/users/252557/gzaetz/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="252557"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=120000AS0J" alt="120000AS0J gravatar image" title="GZaetz"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="16" href="https://developer.ibm.com/answers/users/250113/odmfp/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="250113"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=270002V45P" alt="270002V45P gravatar image" title="odmfp"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="17" href="https://developer.ibm.com/answers/users/3055/billbulfin/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="3055"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=1000004JHC" alt="1000004JHC gravatar image" title="BillBulfin"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="18" href="https://developer.ibm.com/answers/users/7630/odmgd/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="7630"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=270005YS1Y" alt="270005YS1Y gravatar image" title="odmgd"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="19" href="https://developer.ibm.com/answers/users/251830/you-guessed-it/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="251830"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=100000G8KX" alt="100000G8KX gravatar image" title="you_guessed_it"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="20" href="https://developer.ibm.com/answers/users/375/joseph-lam-ibm/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="375"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=0600027QSN" alt="0600027QSN gravatar image" title="Joseph Lam - IBM"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="21" href="https://developer.ibm.com/answers/users/1673/kriskobylinski/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="1673"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=060001QHD8" alt="060001QHD8 gravatar image" title="KrisKobylinski"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="22" href="https://developer.ibm.com/answers/users/1020/brian-k-martin/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="1020"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=120000K389" alt="120000K389 gravatar image" title="Brian K. Martin"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="23" href="https://developer.ibm.com/answers/users/6855/miriamkaestner/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="6855"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=270006BT54" alt="270006BT54 gravatar image" title="Miriam.Kaestner"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="24" href="https://developer.ibm.com/answers/users/3879/andrew-whitfield/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="3879"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=110000ABU4" alt="110000ABU4 gravatar image" title="Andrew Whitfield"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="25" href="https://developer.ibm.com/answers/users/256888/gregork/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="256888"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=2700013SN6" alt="2700013SN6 gravatar image" title="GregorK"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="26" href="https://developer.ibm.com/answers/users/255698/jonpeck/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="255698"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=270002VCWN" alt="270002VCWN gravatar image" title="JonPeck"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="27" href="https://developer.ibm.com/answers/users/6711/german-attanasio-ruiz/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="6711"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=270007KE3F" alt="270007KE3F gravatar image" title="German Attanasio Ruiz"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="28" href="https://developer.ibm.com/answers/users/1258/gregorygregbowman/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="1258"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=1000007M77" alt="1000007M77 gravatar image" title="Gregory(Greg)Bowman"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="29" href="https://developer.ibm.com/answers/users/251091/sujay-kumar/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="251091"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=2700002Q84" alt="2700002Q84 gravatar image" title="Sujay Kumar"> </a> </span> </span> 
+            <span class="top_user"> <span class="thumb gravatar tinyborder"> <a data-hasqtip="30" href="https://developer.ibm.com/answers/users/7161/odml2-sfr/" style="display: inline-block; max-width: 32px;" rel="user" nodeid="7161"> <img width="32" class="gravatar " src="https://www.ibm.com/developerworks/community/profiles/photo.do?userid=0600002UMT" alt="0600002UMT gravatar image" title="odml2_sfr"> </a> </span> </span> 
+           </div> 
+          </div> 
+         </div> 
+         <div> 
+          <div class="widget" id="recent-topics-widget"> 
+           <div class="widget-header"> 
+            <i class="icon-tags"></i> 
+            <h3>Global tags</h3><br> 
+           </div>
+           <div class="widget-content topic-block tags" style="position: relative;">
+          <div id="smart-space-tags"><br> 
+            <p><span > 
+                <a title="" oldtitle="see questions tagged 'digexp'" data-hasqtip="31" class="tag" nodeid="161567" rel="topic" no-popover="1" href="/categories/php">PHP</a>
+
+            </span><span ><a title="" oldtitle="see questions tagged 'digexp'" data-hasqtip="31" class="tag" nodeid="161567" rel="topic" no-popover="1" href="/categories/javascript">Javascript</a></span><span><a title="" oldtitle="see questions tagged 'digexp'" data-hasqtip="31" class="tag" nodeid="161567" rel="topic" no-popover="1" href="/categories/java">Java</a></span><span><a title="" oldtitle="see questions tagged 'digexp'" data-hasqtip="31" class="tag" nodeid="161567" rel="topic" no-popover="1" href="/categories/mean">Mean</a></span>  </p>
+           </div>
+           </div> 
+                
+             
+           
+         </div>  
+        </div>
+
+
+
+  </div>  
+  
+
+
+
+   </div>
+
+
+
+
+          <!--<div class="main-questions-list">
+            <ul id="main_questions_list" ng-repeat="post in posts | orderBy: rowFilter">
+                <li itemprop="itemListElement" itemscope itemtype="" class="question-item post-2212 poll type-poll status-publish format-standard hentry question_category-music" data-id="2212" >
+    <div itemprop="item" itemscope itemtype="">
+        <div class="col-md-6 col-xs-6 q-right-content">
+            <div class="q-ltop-content">
+                <h2 itemprop="name">
+                    <span class="mask-poll">{{category.categoryname | cut:true:60: ' ...'}}</span>
+                    <p><a itemprop="url" href="/view-post/{{post._id}}/{{post.title | slugify}}" class="question-title">{{post.title | cut:true:60: ' ...'}}</a><span ng-if="post.active == false" class="tag-post">Closed</span></p>
+                </h2>
+            </div>
+            <div class="q-lbtm-content">
+                <div class="question-cat">
+                    <ul class="question-tags" ng-repeat="x in post.tags"><li>
+                            <a class="q-tag" href=" ">{{x.text}}</a>
+                            </li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+                    <a itemprop="author" itemscope itemtype="" href="/user-profile/{{currentUser() }}">
+                    <span class="author-avatar">
+                        <img itemprop="image" src="http://enginethemes.com/demo/qaengine/wp-content/uploads/2015/01/12.jpg" class="avatar" alt="" />                    </span>
+                        <span itemprop="name" class="author-name">{{post.author }}</span>
+                    </a>
+                    <span itemprop="dateCreated" title="{{post.created | date:'MM-dd-yy @ h:mm a'}}" class="question-time">
+                    Posted {{post.created | timeAgo }} by {{post.author }}              </span>
+                    <span class="question-category">
+                                    <p></p>
+                                </span>                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-4 q-right-content">
+            <ul class="question-statistic">
+                <li>
+                <span class="question-views">
+                  {{post.views }}                </span>
+                    views                </li>
+                <li>
+                <span class="question-views">
+                    {{post.comments.length }}                </span>
+                    comments                </li>
+                <li>
+                <span itemprop="upvoteCount" class="question-votes">
+                    +{{post.upvotes}}               </span>
+                    Up votes                </li>
+                 <li>
+                <span itemprop="upvoteCount" class="question-votes">
+                  -{{post.downvotes}}               </span>
+                    Down votes                </li>
+            </ul>
+            <div class="pumping">
+                            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</li></ul></div>-->
+
+
+

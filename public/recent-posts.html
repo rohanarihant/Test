@@ -1,0 +1,201 @@
+
+  </style>  <!-- USER MESSAGE DISPLAY BLOCK -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message" ng-show="userMessage !=''">
+                    <button class="btn hide-message-btn" ng-click="hideMessage()"><i class="fa fa-times"></i></button>
+                    <p>{{userMessage}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SHOW RECENT POSTS TABLE HEADER AND CONTROLS -->
+    <div id="posts-display">
+        <div class="container">
+            <div class="row">
+				<div class="col-md-12 clearfix">
+					<div class="">
+						<a class="btn btn-success right" ng-href="/add-post" ng-show="isLoggedIn"><i class="fa fa-plus-square"></i> Add New Post</a>
+                        <a class="right" ng-href="/login" ng-show="!isLoggedIn">Login To Post</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="page-title">All Questions</h1>
+				</div>
+			</div>
+		</div>
+
+      
+        <div ng-if="posts.length == 0">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="user-message warning">
+							<p>No Question  To Display</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="container" ng-if="posts.length != 0">
+            <div class="row">
+                <div class="table-wrap">
+                    <div class="col-md-7 col-sm-7 col-xs-8 table-heading">
+                        <p ng-click="orderByTitle()">Title
+                            <span ng-show="rowFilter == 'title'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == '-title'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </p>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-4 table-heading">
+                        <p ng-click="orderByReplies()">Replies
+                            <span ng-show="rowFilter == 'comments.length'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == '-comments.length'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </p>
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs table-heading">
+                        <p ng-click="orderByView()">Views
+                            <span ng-show="rowFilter == 'views'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == '-views'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </p>
+                    </div>
+                    <div class="col-md-1 col-sm-1 hidden-xs table-heading">
+                        <p ng-click="orderByVotes()">Votes
+                            <span ng-show="rowFilter == '-upvotes'"><i class="fa fa-arrow-circle-down"></i></span>
+                            <span ng-show="rowFilter == 'upvotes'"><i class="fa fa-arrow-circle-up"></i></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+        
+
+
+
+         <div class="widget-header"> 
+           <i class="icon-list-alt"></i> 
+           <h2 id="question-list-title">Questions in Digital Experience space</h2> 
+           <!--build smart space tags list--> 
+           <div id="smart-space-tags"> 
+            <p>All questions tagged with <span class="tags"> <a href="https://developer.ibm.com/answers/topics/digexp/?smartspace=digital-experience" no-popover="1" rel="topic" nodeid="161567" class="tag" data-hasqtip="31" oldtitle="see questions tagged 'digexp'" title="">digexp</a> </span> </p>
+           </div> 
+           <div class="pn-il"> 
+            <span class="pn-subtab "> <span class="pn-subtab-text"><strong>All</strong></span> </span> 
+            <span class="pn-subtab "> <a href="/answers/smartspace/digital-experience/unanswered/" title="These questions have 0 answers">Unanswered</a> </span>  
+           </div> 
+           <ul class="nav nav-pills sort prm"> 
+            <li class="active" title="Active"><a href="?sort=active&amp;smartspace=digital-experience">Active</a></li> 
+            <li title="Newest"><a href="?sort=newest&amp;smartspace=digital-experience">Newest</a></li> 
+            <li title="Likes"><a href="?sort=votes&amp;smartspace=digital-experience">Likes</a></li> 
+           </ul> 
+           <span id="nav-sort-label">Sort by:</span> 
+          </div>
+       
+
+
+
+
+ 
+
+
+
+
+
+
+
+        <!-- DISPLAY POSTS -->
+        <div class="container">
+            <div class="table-wrap">
+                <div class="row post-row" ng-repeat="post in posts | orderBy: rowFilter">
+                    <div class="col-md-7 col-sm-7 col-xs-8">
+                        <p><a href="/view-post/{{post._id}}/{{post.title | slugify}}">{{post.title | cut:true:60: ' ...'}}</a><span ng-if="post.active == false" class="tag-post">Closed</span></p>
+                        <div class="question-cat">
+                            <ul class="question-tags" ng-repeat="x in post.tags">
+                            <li>
+                            <a class="q-tag" href=" ">{{x.text}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                        <p class="category-description" title="{{post.created | date:'MM-dd-yy @ h:mm a'}}">Posted {{post.created | timeAgo }} by {{post.author }}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-4">
+                        <p>{{post.comments.length }}</p>
+                  
+                        
+                    </div>
+                    <div class="col-md-2 col-sm-2 hidden-xs">
+                        <p>{{post.views }}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-1 hidden-xs">
+                        <p class="upvote-display"><span class="upvote-count">+{{post.upvotes}}</span>&nbsp;<span class="downvote-count">-{{post.downvotes}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </div>
+   
+
+
+
+
+          <div class="main-questions-list">
+            <ul id="main_questions_list" ng-repeat="post in posts | orderBy: rowFilter">
+                <li itemprop="itemListElement" itemscope itemtype="" class="question-item post-2212 poll type-poll status-publish format-standard hentry question_category-music" data-id="2212" >
+    <div itemprop="item" itemscope itemtype="">
+        <div class="col-md-6 col-xs-6 q-right-content">
+            <div class="q-ltop-content">
+                <h2 itemprop="name">
+                    <span class="mask-poll">{{category.categoryname | cut:true:60: ' ...'}}</span>
+                    <p><a itemprop="url" href="/view-post/{{post._id}}/{{post.title | slugify}}" class="question-title">{{post.title | cut:true:60: ' ...'}}</a><span ng-if="post.active == false" class="tag-post">Closed</span></p>
+                </h2>
+            </div>
+            <div class="q-lbtm-content">
+                <div class="question-cat">
+                    <ul class="question-tags" ng-repeat="x in post.tags"><li>
+                            <a class="q-tag" href=" ">{{x.text}}</a>
+                            </li>
+                    </ul>
+
+                    <div class="clearfix"></div>
+                    <a itemprop="author" itemscope itemtype="" href="/user-profile/{{currentUser() }}">
+                    <span class="author-avatar">
+                        <img itemprop="image" src="http://enginethemes.com/demo/qaengine/wp-content/uploads/2015/01/12.jpg" class="avatar" alt="" />                    </span>
+                        <span itemprop="name" class="author-name">{{post.author }}</span>
+                    </a>
+                    <span itemprop="dateCreated" title="{{post.created | date:'MM-dd-yy @ h:mm a'}}" class="question-time">
+                    Posted {{post.created | timeAgo }} by {{post.author }}              </span>
+                    <span class="question-category">
+                                    <p></p>
+                                </span>                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-4 q-right-content">
+            <ul class="question-statistic">
+                <li>
+                <span class="question-views">
+                  {{post.views }}                </span>
+                    views                </li>
+                <li>
+                <span class="question-views">
+                    {{post.comments.length }}                </span>
+                    comments                </li>
+                <li>
+                <span itemprop="upvoteCount" class="question-votes">
+                    +{{post.upvotes}}               </span>
+                    Up votes                </li>
+                 <li>
+                <span itemprop="upvoteCount" class="question-votes">
+                  -{{post.downvotes}}               </span>
+                    Down votes                </li>
+            </ul>
+            <div class="pumping">
+                            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</li></ul></div><!-- end left content -->
+
+
+

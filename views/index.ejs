@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="forum-app">
+    <head>
+        <% include ../views/partials/head %>
+        <base href="/">
+    </head>
+    <body id="application">
+ <% include ../views/partials/header %>
+
+        
+
+   <!--  <div id="wrap">
+        <div id="main">  
+            
+            <ui-view></ui-view>
+        </div>
+    </div> -->
+
+
+
+
+        <div>  
+            
+            <ui-view></ui-view>
+        </div>
+   <!-- end wrap -->
+    <% include ../views/partials/footer %>
+    
+
+   <!--  <link href="/stylesheets/nav.css" rel="stylesheet" /> -->
+    <link href="/stylesheets/new_header.css" rel="stylesheet" />
+
+    <link href="/stylesheets/main.css" rel="stylesheet" />
+    <link href="/stylesheets/signup.css" rel="stylesheet" />
+    <link href="/stylesheets/forum-middle2.css" rel="stylesheet" />
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+        <link href="/javascripts/ng-tags-input.min/ng-tags-input.min.css" rel="stylesheet">
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/angular-messages.js"></script>
+    
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.js"></script>
+        <script src="/components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/javascripts/lib/slugify/slugify.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-confirm/1.2.5/angular-confirm.min.js"></script>
+    <script src="/components/angular-timeago/dist/angular-timeago.min.js"></script>
+
+    
+    <script src="/javascripts/angularapp.js"></script>
+    <script src="/javascripts/lib/services.js"></script>
+    <script src="/javascripts/lib/filters.js"></script>
+    <script src="/javascripts/lib/modules.js"></script>
+
+ 
+    
+    <script src="/javascripts/controllers/navbar.js"></script>
+    
+    <script src="/javascripts/controllers/allcategories.js"></script>
+    <script src="/javascripts/controllers/addcategory.js"></script>
+    <script src="/javascripts/controllers/viewcategory.js"></script>
+    <script src="/javascripts/controllers/viewcategoryslug.js"></script>
+    <script src="/javascripts/controllers/deletecategory.js"></script>
+    <script src="/javascripts/controllers/recentposts.js"></script>
+    <script src="/javascripts/controllers/addpost.js"></script>
+    <script src="/javascripts/controllers/viewpost.js"></script>
+    <script src="/javascripts/controllers/deletepost.js"></script>
+    <script src="/javascripts/controllers/closepost.js"></script>
+    <script src="/javascripts/controllers/openpost.js"></script>
+    <script src="/javascripts/controllers/editpost.js"></script>
+    <script src="/javascripts/controllers/auth.js"></script>
+    <script src="/javascripts/controllers/user-profile.js"></script>
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
+
+     <script src="/javascripts/ng-tags-input.min.js"></script>
+      <script type="text/javascript">
+$(function () {
+   $('.panel-google-plus > .panel-footer > .input-placeholder, .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > button[type="reset"]').on('click', function(event) {
+        var $panel = $(this).closest('.panel-google-plus');
+            $comment = $panel.find('.panel-google-plus-comment');
+            
+        $comment.find('.btn:first-child').addClass('disabled');
+        $comment.find('textarea').val('');
+        
+        $panel.toggleClass('panel-google-plus-show-comment');
+        
+        if ($panel.hasClass('panel-google-plus-show-comment')) {
+            $comment.find('textarea').focus();
+        }
+   });
+   $('.panel-google-plus-comment > .panel-google-plus-textarea > textarea').on('keyup', function(event) {
+        var $comment = $(this).closest('.panel-google-plus-comment');
+        
+        $comment.find('button[type="submit"]').addClass('disabled');
+        if ($(this).val().length >= 1) {
+            $comment.find('button[type="submit"]').removeClass('disabled');
+        }
+   });
+});
+</script>
+  </body>
+</html>

@@ -1,0 +1,328 @@
+  <style>
+    .form-control{
+    background: transparent;
+}
+form {
+    width: 320px;
+    margin: 20px;
+}
+form > div {
+    position: relative;
+    overflow: hidden;
+}
+form input, form textarea {
+    width: 100%;
+    border: 2px solid gray;
+    background: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 8px 12px;
+    outline: 0;
+}
+form input:valid, form textarea:valid {
+    background: white;
+}
+form input:focus, form textarea:focus {
+    border-color: #357EBD;
+}
+form input:focus + label, form textarea:focus + label {
+    background: #357EBD;
+    color: white;
+    font-size: 70%;
+    padding: 1px 6px;
+    z-index: 2;
+    text-transform: uppercase;
+}
+/*form label {
+    -webkit-transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+    transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+    position: absolute;
+    color: #999;
+    padding: 7px 6px;
+    font-weight: normal;
+}*/
+form textarea {
+    display: block;
+    resize: vertical;
+}
+form.go-bottom input, form.go-bottom textarea {
+    padding: 12px 12px 12px 12px;
+}
+form.go-bottom label {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+form.go-bottom input:focus, form.go-bottom textarea:focus {
+    padding: 4px 6px 20px 6px;
+}
+form.go-bottom input:focus + label, form.go-bottom textarea:focus + label {
+    top: 100%;
+    margin-top: -16px;
+}
+form.go-right label {
+    border-radius: 0 5px 5px 0;
+    height: 100%;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    margin-right: -100%;
+}
+form.go-right input:focus + label, form.go-right textarea:focus + label {
+    right: 0;
+    margin-right: 0;
+    width: 40%;
+    padding-top: 5px;
+}
+
+
+/*li{
+    list-style:none;
+}
+.submit-btn{
+    margin-top: 20px;
+    border-radius: 0px;
+    background: rgb(255,0,0);
+    color: #ccc;
+}
+.fa-mobile{
+    font-size: 20px;
+}
+input[type="text"]{
+    border-radius: 0px;
+}
+textArea{
+   border-radius: 0px;
+   resize: vertical;
+   width:50%;
+}
+.input-group-addon{
+    border-radius: 0px;
+    color: rgb(255,0,0);
+}*/
+
+    </style>
+
+    <!--<div class="container">
+    <div class="row">
+        <form role="form" class="col-md-9 go-right">
+            <h2>Create a New Post</h2>
+            
+            <div class="form-group">
+<div class="text-counter"><span ng-class="{'over-limit' : (maxTitleSize - addpostform.newPostTitle.$viewValue.length) < 0}">{{maxTitleSize - addpostform.newPostTitle.$viewValue.length}}</span></div>
+            <input id="name" ng-model="newPostTitle" name="newPostTitle" type="text" class="form-control" required ng-minlength="1" ng-maxlength="maxTitleSize">
+            <div class="error-container" ng-messages="addpostform.newPostTitle.$error" ng-if="addpostform.newPostTitle.$touched">
+        <p ng-message="minlength">Your Post Title is too short.</p>
+        <p ng-message="maxlength">Your Post Title is too long.</p>
+        <p ng-message="required">Your Post Title is required.</p>
+                            </div>
+            <label for="name">Post Title</label>
+        </div>
+
+<div class="form-group">
+                            
+                            <select id="phone" name="category" id="category" class="form-control" ng-model="newPostCategory" required>
+                                 <option value="">--Please Select a Category--</option>
+                                 <option value="">--Please Select a Category--</option>
+                                 <option ng-repeat="category in categories" value="{{category._id}}">{{category.categoryname}}</option>
+                            </select>
+                            <label for="phone">Category</label> 
+                        </div>
+
+
+
+
+         <div class="form-group">
+            <input id="phone" name="phone" type="tel" class="form-control" required>
+            <label for="phone">Primary Phone</label>
+        </div>
+        <div class="form-group">
+
+            <textarea id="message" maxlength="{{maxPostContentSize}}" rows="4" cols="50" ng-model="newPostContent" name="newPostContent" ng-trim="false" required ng-maxlength="{{maxPostContentSize}}" class="form-control" required></textarea>
+            <label for="message">Content</label>
+        </div>
+        </form>
+        
+    </div>
+</div>-->
+
+
+<!--<style>
+li{
+    list-style:none;
+}
+.submit-btn{
+    margin-top: 20px;
+    border-radius: 0px;
+    background: rgb(255,0,0);
+    color: #ccc;
+}
+.fa-mobile{
+    font-size: 20px;
+}
+input[type="text"]{
+    border-radius: 0px;
+}
+textArea{
+   border-radius: 0px;
+   resize: vertical;
+   width:50%;
+}
+.input-group-addon{
+    border-radius: 0px;
+    color: rgb(255,0,0);
+}
+</style>-->
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message" ng-show="userMessage !=''">
+                    <button class="btn hide-message-btn" ng-click="hideMessage()"><i class="fa fa-times"></i></button>
+                    <p>{{userMessage}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="container">
+    <div class="row">
+        <form class="col-md-9 go-right" name="addpostform" ng-submit="addPost(addpostform.$valid)" novalidate>
+        <h1>Create a New Question</h1>{{error}}
+        <div class="form-part">
+            
+<div class="form-group shaddow">
+     <div class="input-group">
+        <span class="input-group-addon no-radius"><i class="fa fa-user"></i></span>
+<div class="text-counter"><span ng-class="{'over-limit' : (maxTitleSize - addpostform.newPostTitle.$viewValue.length) < 0}">{{maxTitleSize - addpostform.newPostTitle.$viewValue.length}}</span></div>
+   <input type="text" class="form-control no-radius" aria-describedby="inputGroupSuccess1Status" ng-model="newPostTitle" name="newPostTitle" required ng-minlength="1" ng-maxlength="maxTitleSize" />
+  
+<div class="error-container" ng-messages="addpostform.newPostTitle.$error" ng-if="addpostform.newPostTitle.$touched">
+        <p ng-message="minlength">Your Question Title is too short.</p>
+        <p ng-message="maxlength">Your Question Title is too long.</p>
+        <p ng-message="required">Your Question Title is required.</p>
+                            </div>
+<label for="name">Question Title</label>
+    </div>
+</div>
+
+<div class="form-group">
+                                <label for="newTags">Question Tags</label>
+                               
+                                <tags-input ng-model="tags"></tags-input>
+                          </div>
+
+<div class="form-group">
+    <div class="form-group shaddow">
+<!-- <label for="newPostContent">Post Content</label> -->
+<div class="text-counter">{{maxPostContentSize - newPostContent.length}}</div>
+   
+        <textarea id="message" maxlength="{{maxPostContentSize}}" rows="4" cols="50" ng-model="newPostContent" name="newPostContent" ng-trim="false" required ng-maxlength="{{maxPostContentSize}}"></textarea>
+ 
+       <div class="error-container" ng-messages="addpostform.newPostContent.$error" ng-if="addpostform.newPostContent.$touched">
+<p ng-message="minlength">Your Question Content is too short.</p>
+<p ng-message="maxlength">Your Question Content is too long.</p>
+ <p ng-message="required">Question Content is required.</p>
+    </div>
+    <label for="message">Content</label>
+    </div>
+</div>
+   
+<div class="form-group">
+    <div class="input-group shaddow">
+     <span class="input-group-addon no-radius"><i class="fa fa-mobile"></i></span>
+         <select name="category" id="category" class="form-control" ng-model="newPostCategory" required>
+      <option value="">--Please Select a Category--</option>
+  <option ng-repeat="category in categories" value="{{category._id}}">{{category.categoryname}}</option>
+                            </select> 
+                        </div>
+</div>
+
+
+
+
+      <button class="btn btn-primary" type="submit" ng-disabled="addpostform.$invalid"><i class="fa fa-plus-circle"></i> Add Question</button>
+                        <a href="/home/" class="btn btn-default"><i class="fa fa-chevron-left"></i> Go Back</a>
+                       
+                   
+             
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- USER MESSAGE DISPLAY BLOCK -->
+     <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-message" ng-show="userMessage !=''">
+                    <button class="btn hide-message-btn" ng-click="hideMessage()"><i class="fa fa-times"></i></button>
+                    <p>{{userMessage}}</p>
+                </div>
+            </div>
+        </div>
+    </div> 
+  
+    <div id="form-container">
+        <div class="container">
+            <div class="row">
+                <form name="addpostform" ng-submit="addPost(addpostform.$valid)" novalidate >
+                    <div class="col-md-12">
+                        <h1 class="page-title">Create a New Post</h1>
+<div class="form-group">
+    <label for="newPostTitle">Post Title</label>
+        <div class="text-counter"><span ng-class="{'over-limit' : (maxTitleSize - addpostform.newPostTitle.$viewValue.length) < 0}">{{maxTitleSize - addpostform.newPostTitle.$viewValue.length}}</span></div>
+    <input type="text" class="form-control" ng-model="newPostTitle" name="newPostTitle" required ng-minlength="1" ng-maxlength="maxTitleSize" />
+    <div class="error-container" ng-messages="addpostform.newPostTitle.$error" ng-if="addpostform.newPostTitle.$touched">
+        <p ng-message="minlength">Your Post Title is too short.</p>
+        <p ng-message="maxlength">Your Post Title is too long.</p>
+        <p ng-message="required">Your Post Title is required.</p>
+                            </div>
+</div>
+
+ <div class="form-group">
+        <label for="newPostContent">Post Content</label>
+<div class="text-counter">{{maxPostContentSize - newPostContent.length}}</div>
+<textarea class="form-control" maxlength="{{maxPostContentSize}}" rows="4" cols="50" ng-model="newPostContent" name="newPostContent" ng-trim="false" required ng-maxlength="{{maxPostContentSize}}"></textarea>
+                            
+<div class="error-container" ng-messages="addpostform.newPostContent.$error" ng-if="addpostform.newPostContent.$touched">
+<p ng-message="minlength">Your Post Content is too short.</p>
+<p ng-message="maxlength">Your Post Content is too long.</p>
+ <p ng-message="required">Post Content is required.</p>
+    </div>
+</div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select name="category" id="category" class="form-control" ng-model="newPostCategory" required>
+                                 <option value="">--Please Select a Category--</option>
+                                 <option ng-repeat="category in categories" value="{{category._id}}">{{category.categoryname}}</option>
+                            </select> 
+                        </div>
+                        <button class="btn btn-primary" type="submit" ng-disabled="addpostform.$invalid"><i class="fa fa-plus-circle"></i> Add Post</button>
+                        <a href="/home/" class="btn btn-default"><i class="fa fa-chevron-left"></i> Go Back</a>
+                    </div>
+                </form>   
+            </div>
+        </div>
+    </div> -->
